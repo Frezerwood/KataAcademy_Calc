@@ -6,12 +6,13 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
         String inputExpression = scanner.next();
-        String[] elements  = inputExpression.split(" ");
+        calc(inputExpression);
 
     }
 
-
     public static String calc (String input) {
+
+        String[] elements  = input.split(" ");
         return null;
     }
 }
