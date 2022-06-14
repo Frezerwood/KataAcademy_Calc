@@ -16,5 +16,4 @@ public enum Numeric {
     Numeric(int arabic) {
         this.arabic = arabic;
     }
-
 }
