@@ -43,7 +43,9 @@ public class Main {
                     a = n.getArabic();
                 }
             }
+
             int secondRomanNumber = elements[2].codePointAt(0);
+
             if (65 <= secondRomanNumber && secondRomanNumber <= 90) {
                 for (Numeric n : romanNumbers) {
                     if (n.name().equals(elements[2])) {
@@ -53,10 +55,10 @@ public class Main {
             } else {
                 throw new Exception("Something wrong..");
             }
-            if (b > a) {
-                throw new Exception("Something wrong.."); // Контроль отрицательного результата для римских цифр
-            }
+
             c = elements[1].charAt(0);
+        } else {
+            throw new Exception("Something wrong..");
         }
 
         if (!(elements.length == 3)) {
@@ -64,14 +66,20 @@ public class Main {
             throw new Exception("Something wrong..");
         }
 
-        if (a <= 10 & b <= 10) {
+        if ((a > 0 & a <= 10) & (b > 0 & b <= 10)) {
             if (controlCheckbox) {            // Выводим результат римскими цифрами
-                input = transformationNumbers(solution(a, b, c), romanNumbers);
+                if (solution(a, b, c) > 0) {            // Проверка результата для римских цифр (res > 0)
+                    input = transformationNumbers(solution(a, b, c), romanNumbers);
+                } else {
+                    throw new Exception("Something wrong..");
+                }
                 //System.out.println("Результат =  " + input);
             } else {
                 input = String.valueOf(solution(a, b, c));             // Выводим результат арабскими цифрами
                 //System.out.println("Результат =  " + input);
             }
+        } else {
+            throw new Exception("Something wrong..");
         }
         return input;
     }
